@@ -1,0 +1,40 @@
+<html>
+<head>
+    <link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.11/jquery-ui.min.js"></script>
+
+    <style>
+        .ui-autocomplete { 
+            cursor:pointer; 
+            height:120px; 
+            overflow-y:scroll;
+        }    
+    </style>
+</head>
+<body style="font-size:62.5%;">
+    <p  style="font:14px arial">Generate report on basis of </p>
+
+    <div style="font:14px arial">
+        <input type="text" id="tbCountries" />
+    </div>
+</body>
+
+<script>
+    $(document).ready(function() {
+        BindControls();
+    });
+
+    function BindControls() {
+        var col = [`PEN_NO`, `ID`, `EMP_NAME`, `EMP_TITLE`, `BIRTH_DT`, `FATHER_NAME`, `GENDER`, `EMP_BGRP`, `CATG_CD`, `GRADE_CD`, `GRADE_PAY`, `GROUP_CD`, `GRADE_CD1`, `PAY_BAND`, `PRESENT_BASIC`, `ID_MARKS`, `DRONA_EMAIL`, `PUB_EMAIL`, `LOCAL_ADDR`, `PERM_ADDR`, `LAB_SEN_NO`, `HOME_PH_NO`, `EXT_PH_NO`, `MOB_PH_NO`, `DELEG_RANK`, `DELEG_CODE`, `RANK_LAB`, `DIVI`, `SUB_DIVI`, `APPTYPE`, `PIN`, `BANKAC`, `GPFNO`, `BAND`];
+
+        $('#tbCountries').autocomplete({
+            source: col,
+            minLength: 0,
+            scroll: true
+        }).focus(function() {
+            $(this).autocomplete("search", "");
+        });
+    }
+</script>
+</html>
