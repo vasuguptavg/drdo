@@ -73,7 +73,7 @@
 </head>
     <body>
     <form method="post" action="penNo.php">
-        Enter employee penNo:<input type="text" name="penNo" value="penNo">
+        Enter employee penNo:<input type="text" name="penNo" >
         <input type="submit" name="submit" value="submit">
     </form>
     <a href="logout.php">Logout</a>

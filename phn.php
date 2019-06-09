@@ -71,7 +71,7 @@
 </head>
     <body>
     <form method="post" action="phn.php">
-        Enter phone number:<input type="number" name="phn" value="phn">
+        Enter phone number:<input type="number" name="phn" >
         <input type="submit" name="submit" value="submit">
     </form>
     <a href="logout.php">Logout</a>
