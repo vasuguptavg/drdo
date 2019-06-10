@@ -14,7 +14,7 @@
         $row = mysqli_fetch_assoc($result);
         echo "<br>";
         while($row){?>
-        <table>
+        <table id="example">
         <tr>
             <td style="width: 90px;"><?php echo $row['PEN_NO']; ?></td>
             <td><?php echo $row['ID']; ?></td>
@@ -64,14 +64,83 @@
     ?>
     </tbody>
     </table>
-
+<input type="button" id="create_pdf" value="Generate PDF">  
 <html>
 <head>
-  
+ <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+
+        crossorigin="anonymous"></script>
+
+<script src="src/tableHTMLExport.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.4.1/jspdf.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/2.3.5/jspdf.plugin.autotable.min.js"></script>
+
+   <script>  
+   $("#example").tableHTMLExport({
+
+  // csv, txt, json, pdf
+  type:'json',
+
+  // file name
+  filename:'sample.json',
+
+  ignoreColumns: '.ignore',
+  ignoreRows: '.ignore'
+
+});
+   $("#example").tableHTMLExport({
+
+ 
+
+ // csv, txt, json, pdf
+
+  type:'csv',
+
+ 
+  // default file name
+
+  filename: 'tableHTMLExport.csv'
+
+ 
+
+ // for csv
+
+  separator: ',',
+
+  newline: '\r\n',
+
+  trimContent: true,
+
+  quoteFields: true,
+
+ 
+
+  // CSS selector(s)
+
+  ignoreColumns: '',
+
+  ignoreRows: '',
+
+                 
+
+  // your html table has html content?
+
+  htmlContent: false,
+
+  // debug
+consoleLog: false,       
+
+});
+
+   </script>
 </head>
     <body>
-    <form method="post" action="phn.php">
-        Enter phone number:<input type="number" name="phn" >
+    <form method="post" action="phn.php" class="form">
+        Enter phone number:<input type="number" name="phn" value="phn">
         <input type="submit" name="submit" value="submit">
     </form>
     <a href="logout.php">Logout</a>
